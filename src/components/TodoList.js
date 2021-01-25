@@ -1,26 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodosContext } from '../context/todo.context'
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import TodoTask from './TodoTask';
 
-const TodoList = ({
-  tasks,
-  handleTodoDelete,
-  handleCompleted,
-  handleUpdate
-}) => {
+const TodoList = (props) => {
+  const { tasks } = useContext(TodosContext)
   return (
     <Paper>
       <List>
         {tasks.map(m => (
           <TodoTask
             key={m.id}
-            tasks={m.task}
+            taskTodo={m.task}
             taskId={m.id}
             taskChecked={m.completed}
-            handleTodoDelete={handleTodoDelete}
-            handleCompleted={handleCompleted}
-            handleUpdate={handleUpdate}
           />
         ))}
       </List>

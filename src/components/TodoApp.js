@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import useTodoState from '../hooks/useTodoState';
+import React from 'react';
+import { TodosProvider } from '../context/todo.context'
+// import useTodoState from '../hooks/useTodoState';
 import TodoForm from './TodoForm';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
@@ -10,21 +11,6 @@ import TodoList from './TodoList';
 
 
 const TodoApp = () => {
-  const initialTodos = [
-    { id: 1, task: 'Wash Jeep', completed: false }
-  ];
-
-  const {
-    tasks,
-    handleTodoPass,
-    handleTodoDelete,
-    handleCompleted,
-    handleUpdate
-  } = useTodoState(initialTodos);
-
-  useEffect(() => {
-    localStorage.setItem('allTodos', JSON.stringify(tasks));
-  }, [tasks]);
 
   return (
     <Paper
@@ -43,13 +29,10 @@ const TodoApp = () => {
       </AppBar>
       <Grid container justify="center" style={{ marginTop: '2rem' }}>
         <Grid item xs={11} md={8} lg={4}>
-          <TodoForm handleTodoPass={handleTodoPass} />
-          <TodoList
-            tasks={tasks}
-            handleTodoDelete={handleTodoDelete}
-            handleCompleted={handleCompleted}
-            handleUpdate={handleUpdate}
-          />
+          <TodosProvider>
+            <TodoForm />
+            <TodoList />
+          </TodosProvider>
         </Grid>
       </Grid>
     </Paper>

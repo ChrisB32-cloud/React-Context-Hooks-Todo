@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { TodosContext } from '../context/todo.context'
 import useInputState from '../hooks/useInputState';
 import Paper from '@material-ui/core/Paper';
 import { v4 as uuidv4 } from 'uuid';
 import TextField from '@material-ui/core/TextField';
 
-const TodoForm = ({ handleTodoPass }) => {
+const TodoForm = (props) => {
   const [text, setText, resetText] = useInputState('');
+  const { handleTodoPass } = useContext(TodosContext)
   const handleSubmit = e => {
     e.preventDefault();
     handleTodoPass({ id: uuidv4(), task: text, completed: false });
