@@ -13,7 +13,6 @@ const TodoList = ({
     <Paper>
       <List>
         {tasks.map(m => (
-          // <>
           <TodoTask
             key={m.id}
             tasks={m.task}

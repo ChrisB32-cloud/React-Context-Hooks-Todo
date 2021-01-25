@@ -8,26 +8,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import TodoList from './TodoList';
 
-// -- Components
-// - Todo App
-//   - Todo Form
-//   - Todo List
-//      - Todo Item
-
-// !!!!!
-// - Leaving A few buttons commented out on Components incase of future changes
-// !!!!!
 
 const TodoApp = () => {
   const initialTodos = [
     { id: 1, task: 'Wash Jeep', completed: false }
-    // { id: 2, task: 'Buy Grouserys', completed: true },
-    // { id: 3, task: 'Wash Self', completed: false }
   ];
 
-  // const fetchlocalstorage = localStorage.getItem('allTodos');
-  // const parseTodos = JSON.parse(fetchlocalstorage);
-  // const localOrInitail = parseTodos === null ? initialTodos : parseTodos;
   const {
     tasks,
     handleTodoPass,
@@ -72,30 +58,4 @@ const TodoApp = () => {
 
 export default TodoApp;
 
-// const storData = () => {
-//   localStorage.setItem('allTodos', JSON.stringify(tasks));
-// };
 
-// storData();
-
-// const handleTodoPass = passTodo => {
-//   setTasks([...tasks, passTodo]);
-// };
-
-// const handleTodoDelete = passedId => {
-//   setTasks(tasks.filter(t => t.id !== passedId));
-// };
-
-// const handleCompleted = taskId => {
-//   const toggleCompleted = tasks.map(t =>
-//     t.id === taskId ? { ...t, completed: !t.completed } : t
-//   );
-//   setTasks(toggleCompleted);
-// };
-
-// const handleUpdate = passUpdate => {
-//   const updateTask = tasks.map(t =>
-//     t.id === passUpdate.id ? { ...t, task: passUpdate.task } : t
-//   );
-//   setTasks(updateTask);
-// };

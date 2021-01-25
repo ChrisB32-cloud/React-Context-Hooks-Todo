@@ -21,7 +21,6 @@ const TodoForm = ({ handleTodoPass }) => {
           label="Add Todo"
           fullWidth
         />
-        {/* <button type="submit">Add Todo</button> */}
       </form>
     </Paper>
   );
