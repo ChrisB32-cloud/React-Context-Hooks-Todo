@@ -8,7 +8,7 @@ const reducer = (state, action) => {
         case "COMPELETEED_TODO":
             return state.map(t => t.id === action.id ? { ...t, completed: !t.completed } : t);
         case "UPDATE_TODO":
-            return state.map(t => t.id === action.id ? { ...t, task: action.task, completed: false } : t);
+            return state.map(t => t.id === action.id ? { ...t, task: action.newTask, completed: false } : t);
         default:
             return state;
     }
