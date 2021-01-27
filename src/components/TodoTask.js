@@ -11,12 +11,14 @@ import TodoEdit from './TodoEdit';
 
 const TodoTask = ({ taskTodo, taskId, taskChecked }) => {
   const [formSwitch, setFormSwitch] = useToggle(false);
-  const { handleTodoDelete, handleCompleted } = useContext(TodosContext)
+  const { dispatch } = useContext(TodosContext)
   const handleDelete = () => {
-    handleTodoDelete(taskId);
+    // handleTodoDelete(taskId);
+    dispatch({ type: "DELETE_TODO", id: taskId })
   };
   const handleCheckClick = () => {
-    handleCompleted(taskId);
+    // handleCompleted(taskId);
+    dispatch({ type: "COMPELETEED_TODO", id: taskId })
   };
   const editForm = () => {
     setFormSwitch(true);

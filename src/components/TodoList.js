@@ -5,11 +5,11 @@ import List from '@material-ui/core/List';
 import TodoTask from './TodoTask';
 
 const TodoList = (props) => {
-  const { tasks } = useContext(TodosContext)
+  const { todos } = useContext(TodosContext)
   return (
     <Paper>
       <List>
-        {tasks.map(m => (
+        {todos.map(m => (
           <TodoTask
             key={m.id}
             taskTodo={m.task}

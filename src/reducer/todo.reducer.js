@@ -1,14 +1,14 @@
-import uuid from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
-            return [...state, { id: uuid(), task: action.task, completed: false }];
+            return [...state, { id: uuidv4(), task: action.task, completed: false }];
         case "DELETE_TODO":
             return (state.filter(t => t.id !== action.id));
         case "COMPELETEED_TODO":
             return state.map(t => t.id === action.id ? { ...t, completed: !t.completed } : t);
         case "UPDATE_TODO":
-            return state.map(t => t.id === action.id ? { ...t, task: action.newTask, completed: passUpdate.completed } : t);
+            return state.map(t => t.id === action.id ? { ...t, task: action.task, completed: false } : t);
         default:
             return state;
     }
