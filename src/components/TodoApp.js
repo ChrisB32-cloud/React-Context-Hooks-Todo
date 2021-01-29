@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import TodoList from './TodoList';
 
 
+// testing new memo branch
+
 const TodoApp = () => {
 
   return (
