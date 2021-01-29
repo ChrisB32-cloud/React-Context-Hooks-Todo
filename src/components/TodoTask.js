@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { TodosContext } from '../context/todo.context'
+import { DispatchContext } from '../context/todo.context'
 import useToggle from '../hooks/useToggle';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
@@ -11,7 +11,7 @@ import TodoEdit from './TodoEdit';
 
 const TodoTask = ({ taskTodo, taskId, taskChecked }) => {
   const [formSwitch, setFormSwitch] = useToggle(false);
-  const { dispatch } = useContext(TodosContext)
+  const { dispatch } = useContext(DispatchContext)
   const handleDelete = () => {
     // handleTodoDelete(taskId);
     dispatch({ type: "DELETE_TODO", id: taskId })

@@ -6,10 +6,11 @@ import useTodoState from '../hooks/useTodoState'
 const defaultValues = [
     { id: 1, task: 'Wash Jeep', completed: false },
     { id: 2, task: 'Order parts', completed: false },
-    { id: 3, task: 'Wash Dishes', completed: false }
+    { id: 3, task: 'Wash Dishes', completed: true }
 ]
 
 export const TodosContext = createContext()
+export const DispatchContext = createContext()
 
 export function TodosProvider(props) {
 
@@ -17,8 +18,10 @@ export function TodosProvider(props) {
 
 
     return (
-        <TodosContext.Provider value={{ todos, dispatch }} >
-            {props.children}
+        <TodosContext.Provider value={{ todos }} >
+            <DispatchContext.Provider value={{ dispatch }}>
+                {props.children}
+            </DispatchContext.Provider>
         </TodosContext.Provider>
     )
 }
