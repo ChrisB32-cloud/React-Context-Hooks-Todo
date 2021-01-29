@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import TodoTask from './TodoTask';
 
 const TodoList = (props) => {
-  const { todos } = useContext(TodosContext)
+  const todos = useContext(TodosContext)
   return (
     <Paper>
       <List>

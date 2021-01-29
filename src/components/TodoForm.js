@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 
 const TodoForm = (props) => {
   const [text, setText, resetText] = useInputState('');
-  const { dispatch } = useContext(DispatchContext)
+  const dispatch = useContext(DispatchContext)
   const handleSubmit = e => {
     e.preventDefault();
     dispatch({ type: "ADD_TODO", task: text })

@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 
 const TodoEdit = ({ taskPass, id, closeUpdateForm }) => {
   const [text, setText, resetText] = useInputState(taskPass);
-  const { dispatch } = useContext(DispatchContext)
+  const dispatch = useContext(DispatchContext)
   const handleSubmit = e => {
     e.preventDefault();
     dispatch({ type: "UPDATE_TODO", newTask: text, id: id })

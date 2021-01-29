@@ -11,7 +11,7 @@ import TodoEdit from './TodoEdit';
 
 const TodoTask = ({ taskTodo, taskId, taskChecked }) => {
   const [formSwitch, setFormSwitch] = useToggle(false);
-  const { dispatch } = useContext(DispatchContext)
+  const dispatch = useContext(DispatchContext)
   const handleDelete = () => {
     // handleTodoDelete(taskId);
     dispatch({ type: "DELETE_TODO", id: taskId })
