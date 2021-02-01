@@ -80,6 +80,10 @@ otherwise return false
 // - This method only exist as a performance optiimzation. Do not 
 // rely on it to "prevent" a render, as this can lead to bugs.
 
+// NOTE: This is similar to using PureComponent with classes but is limited
+// it is used in the components with passed down props for a performance
+// boost only.
+
 
 function App() {
   return (
