@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import { DispatchContext } from '../context/todo.context'
 import useToggle from '../hooks/useToggle';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -26,6 +26,7 @@ const TodoTask = ({ taskTodo, taskId, taskChecked }) => {
   const closeUpdateForm = closeForm => {
     setFormSwitch(closeForm);
   };
+  console.log('Re-render: ', taskId);
   return (
     <div>
       <ListItem>
@@ -72,4 +73,4 @@ const TodoTask = ({ taskTodo, taskId, taskChecked }) => {
   );
 };
 
-export default TodoTask;
+export default memo(TodoTask);

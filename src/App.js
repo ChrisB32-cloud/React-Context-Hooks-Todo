@@ -44,6 +44,47 @@ import TodoApp from './components/TodoApp';
 //  (useEffect) or (useCallBack) dependency list.
 
 
+// -- memo --
+
+// const MyComponent = React.memo(function MyComponent(props) {
+//     render using props 
+// });
+
+// - (memo) is a higher order component
+
+// - If your component renders the same result given the same props, you
+// can wrap it in a call to (memo) for a performance boost in some cases
+// by memorizing the result. This means that React will skip rendering 
+// the component, and reuse the last rendered result.
+
+// (memo) only checks for prop changes. If your function component wrapped 
+// in (memo) has a (useState) or (useContext) Hook in its implementation, it
+// will still re-render when state or context change.
+
+// - By default it will only shallowly compare complex in the props object. If
+// you want control over the comparison, you can also provide a custom comparison 
+// function as the second argument.
+
+//  function MyComponent(props) {
+/* render using props */
+//  }
+//  function areEqual(prevProps, nextProps) {
+/*
+return true if passing nextProps to render would return
+the same result as passing prevProps to render,
+otherwise return false
+*/
+//  }
+//  export default React.memo(MyComponent, areEqual);
+
+// - This method only exist as a performance optiimzation. Do not 
+// rely on it to "prevent" a render, as this can lead to bugs.
+
+// NOTE: This is similar to using PureComponent with classes but is limited
+// it is used in the components with passed down props for a performance
+// boost only.
+
+
 function App() {
   return (
     <div className="App">
